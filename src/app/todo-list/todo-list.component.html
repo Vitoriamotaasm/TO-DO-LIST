@@ -1,0 +1,24 @@
+<div class="todo-container">
+    <h1>To-Do List</h1>
+  
+    <div class="add-task">
+      <input
+        [(ngModel)]="newTask"
+        placeholder="Digite uma nova tarefa"
+        (keyup.enter)="addTask()"
+      />
+      <button (click)="addTask()">Adicionar</button>
+    </div>
+  
+    <ul>
+      <li *ngFor="let task of tasks; let i = index">
+        <span
+          [class.completed]="task.completed"
+          (click)="toggleTaskCompletion(i)"
+        >
+          {{ task.name }}
+        </span>
+        <button (click)="removeTask(i)">Remover</button>
+      </li>
+    </ul>
+  </div>
