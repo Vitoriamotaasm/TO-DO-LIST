@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPlus, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -19,10 +20,20 @@ import { trigger, transition, style, animate } from '@angular/animations';
       transition(':leave', [
         animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10px)' }))
       ])
+    ]),
+    trigger('scaleIn', [
+      transition(':enter', [
+        style({ transform: 'scale(0.8)', opacity: 0 }),
+        animate('200ms ease-out', style({ transform: 'scale(1)', opacity: 1 }))
+      ])
     ])
   ]
 })
 export class TodoListComponent {
+  faPlus = faPlus;
+  faCheck = faCheck;
+  faTrash = faTrash;
+
   tasks: { name: string, completed: boolean }[] = [];
   newTask: string = '';
 

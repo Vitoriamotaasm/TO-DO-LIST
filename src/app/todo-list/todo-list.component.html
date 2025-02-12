@@ -1,14 +1,14 @@
 <div class="todo-container">
   <h1>To-Do List</h1>
 
-  <div class="add-task">
+  <div class="add-task" @scaleIn>
     <input
       [(ngModel)]="newTask"
       placeholder="Digite uma nova tarefa"
       (keyup.enter)="addTask()"
     />
     <button (click)="addTask()">
-      <fa-icon [icon]="['fas', 'plus']"></fa-icon> Adicionar
+      <fa-icon [icon]="faPlus"></fa-icon> Adicionar
     </button>
   </div>
 
@@ -22,10 +22,10 @@
       </span>
       <div class="task-actions">
         <button (click)="toggleTaskCompletion(i)" class="complete-btn">
-          <fa-icon [icon]="['fas', 'check']"></fa-icon>
+          <fa-icon [icon]="faCheck"></fa-icon>
         </button>
         <button (click)="removeTask(i)" class="remove-btn">
-          <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+          <fa-icon [icon]="faTrash"></fa-icon>
         </button>
       </div>
     </li>
